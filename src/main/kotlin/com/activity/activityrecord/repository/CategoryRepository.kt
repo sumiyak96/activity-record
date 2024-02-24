@@ -1,4 +1,4 @@
-package com.activity.activityrecord
+package com.activity.activityrecord.repository
 
 import com.activity.activityrecord.entity.Category
 import org.springframework.data.jpa.repository.JpaRepository

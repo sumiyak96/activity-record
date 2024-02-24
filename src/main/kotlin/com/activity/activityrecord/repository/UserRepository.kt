@@ -1,4 +1,4 @@
-package com.activity.activityrecord.controller.repository
+package com.activity.activityrecord.repository
 
 import com.activity.activityrecord.entity.Customer
 import org.springframework.data.jpa.repository.JpaRepository

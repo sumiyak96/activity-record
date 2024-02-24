@@ -1,7 +1,7 @@
-package com.activity.activityrecord.service.activity
+package com.activity.activityrecord.service.category
 
 import com.activity.activityrecord.entity.Category
-import com.activity.activityrecord.CategoryRepository
+import com.activity.activityrecord.repository.CategoryRepository
 import org.springframework.stereotype.Service
 
 @Service

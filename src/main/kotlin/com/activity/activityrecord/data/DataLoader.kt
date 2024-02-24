@@ -2,9 +2,9 @@ package com.activity.activityrecord.data
 import com.activity.activityrecord.entity.Category
 import com.activity.activityrecord.entity.Customer
 import com.activity.activityrecord.entity.SubCategory
-import com.activity.activityrecord.CategoryRepository
-import com.activity.activityrecord.controller.repository.CustomerRepository
-import com.activity.activityrecord.controller.repository.SubCategoryRepository
+import com.activity.activityrecord.repository.CategoryRepository
+import com.activity.activityrecord.repository.CustomerRepository
+import com.activity.activityrecord.repository.SubCategoryRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 

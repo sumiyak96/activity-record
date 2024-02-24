@@ -1,6 +1,6 @@
 package com.activity.activityrecord.controller.category
 
-import com.activity.activityrecord.service.activity.CategoryService
+import com.activity.activityrecord.service.category.CategoryService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
