@@ -8,5 +8,5 @@ class Customer(
         @Id
         val customerId: String,
 
-        var customername: String
+        var customerName: String
 )
