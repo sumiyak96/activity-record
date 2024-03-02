@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/activity")
 @CrossOrigin
-class ActivityRecordController(private val activityService: ActivityService,
-        private val entityManager: EntityManager) {
+class ActivityController(private val activityService: ActivityService,
+                         private val entityManager: EntityManager) {
 
     @PostMapping("/register")
     fun createActivityRecord(@RequestBody request: ActivityRegisterRequest): ResponseEntity<ActivityRegisterResponse> {
