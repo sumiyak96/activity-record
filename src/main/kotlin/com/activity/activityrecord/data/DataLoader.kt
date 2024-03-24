@@ -1,21 +1,29 @@
 package com.activity.activityrecord.data
+import com.activity.activityrecord.entity.Activity
 import com.activity.activityrecord.entity.Category
 import com.activity.activityrecord.entity.Customer
 import com.activity.activityrecord.entity.SubCategory
+import com.activity.activityrecord.repository.ActivityRepository
 import com.activity.activityrecord.repository.CategoryRepository
 import com.activity.activityrecord.repository.CustomerRepository
 import com.activity.activityrecord.repository.SubCategoryRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
+import java.time.LocalDate
 
 @Component
 class DataLoader(private val customerRepository: CustomerRepository,
                  private val categoryRepository: CategoryRepository,
-                 private val subCategoryRepository: SubCategoryRepository) : CommandLineRunner {
+                 private val subCategoryRepository: SubCategoryRepository,
+                 private val activityRepository: ActivityRepository) : CommandLineRunner {
 
     override fun run(vararg args: String?) {
         val customer1 = createCustomer()
         createCategory(customer1)
+        createActivity(customer1, 1, 1, 365, 1)
+        createActivity(customer1, 1, 2, 200, 2)
+        createActivity(customer1, 2, 3, 50, 5)
+        createActivity(customer1, 2, 4, 25, 8)
     }
 
     fun createCustomer(): Customer {
@@ -46,5 +54,21 @@ class DataLoader(private val customerRepository: CustomerRepository,
         subCategoryRepository.save(subCategory3)
         subCategoryRepository.save(subCategory4)
         subCategoryRepository.save(subCategory5)
+    }
+
+    fun createActivity(customer: Customer, categoryId: Long, subCategoryId: Long, days: Int, interval: Long) {
+        val category = categoryRepository.findById(categoryId).get()
+        val subCategory = subCategoryRepository.findById(subCategoryId).get()
+        var basisDate = LocalDate.now()
+        for(i in 1..days) {
+            val activity = Activity(
+                    customerId = customer.customerId,
+                    category = category,
+                    subCategory = subCategory,
+                    eventDate = basisDate
+            )
+            basisDate = basisDate.minusDays(interval)
+            activityRepository.save(activity)
+        }
     }
 }
