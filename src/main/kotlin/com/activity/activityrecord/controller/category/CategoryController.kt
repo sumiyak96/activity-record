@@ -25,7 +25,7 @@ class CategoryController(private val categoryService: CategoryService,
 
     @PostMapping("/category/update")
     fun updateCategory(@RequestBody request: UpdateCategoryRequest): ResponseEntity<Void> {
-        categoryService.saveCategory(request.toEntity(customer))
+        categoryService.updateCategory(request)
         return ResponseEntity(HttpStatus.OK)
     }
 
@@ -38,8 +38,7 @@ class CategoryController(private val categoryService: CategoryService,
 
     @PostMapping("/subCategory/update")
     fun updateSubCategory(@RequestBody request: UpdateSubCategoryRequest): ResponseEntity<Void> {
-        val category = categoryService.getCategory(request.categoryId)
-        categoryService.saveSubCategory(request.toEntity(category))
+        categoryService.updateSubCategory(request)
         return ResponseEntity(HttpStatus.OK)
     }
 

@@ -8,15 +8,6 @@ import java.time.LocalDate
 import java.util.*
 
 data class UpdateSubCategoryRequest(
-        var categoryId: Long,
         var subCategoryId: Long,
         var subCategoryName: String,
-) {
-    fun toEntity(category: Category): SubCategory {
-        return SubCategory(
-                subCategoryId = subCategoryId,
-                subCategoryName = subCategoryName,
-                category = category
-        )
-    }
-}
+)
